@@ -1,0 +1,30 @@
+<h1>User</h1>
+<%= turbo_stream_from :users %>
+<table class='table'>
+  <thead>
+    <th>Name</th>
+    <th>Email</th>
+
+    <th colspan=3>Actions</th>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+
+        <td><%= link_to "Show", user_path(user) %></td>
+        <td><%= link_to "Edit", edit_user_path(user) %></td>
+        <td>
+          <%= link_to "Delete", user_path(user),
+            "data-turbo-method": :delete,
+            "data-turbo-confirm": "Are you sure?" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "New user", new_user_path %>

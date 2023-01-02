@@ -1,0 +1,9 @@
+<%= render @user %>
+
+<div>
+  <%= link_to "Edit", edit_user_path(@user) %> |
+  <%= link_to "Destroy", user_path(@user),
+    "data-turbo-method": :delete,
+    "data-turbo-confirm": "Are you sure?" %> |
+  <%= link_to "Back to users", users_path %>
+</div>
